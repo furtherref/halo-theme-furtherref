@@ -1,25 +1,25 @@
 apiVersion: theme.halo.run/v1alpha1
 kind: Theme
 metadata:
-  name: theme-earth
+  name: theme-furtherref
   annotations:
     # Add supports for Halo App Store
     # https://halo.run/store/apps/app-KgWqR
     "store.halo.run/app-id": "app-KgWqR"
 spec:
-  displayName: Earth
+  displayName: FurtherRef
   author:
     name: Halo
     website: https://www.halo.run
-  description: Default theme for Halo 2.0
-  logo: https://www.halo.run/logo
+  description: Furtherref theme for Halo 2.0
+  logo: /themes/theme-furtherref/assets/images/logo.png
   homepage: https://www.halo.run/store/apps/app-KgWqR
-  repo: https://github.com/halo-dev/theme-earth
-  issues: https://github.com/halo-dev/theme-earth/issues
-  settingName: "theme-earth-setting"
-  configMapName: "theme-earth-configMap"
-  version: 1.15.3
+  repo: https://github.com/furtherref/halo-theme-furtherref
+  issues: https://github.com/furtherref/halo-theme-furtherref/issues
+  settingName: "theme-furtherref-setting"
+  configMapName: "theme-furtherref-configMap"
+  version: 1.15.4
   requires: ">=2.22.0"
   license:
     - name: "GPL-3.0"
-      url: "https://github.com/halo-dev/theme-earth/blob/main/LICENSE"
+      url: "https://github.com/furtherref/halo-theme-furtherref/blob/main/LICENSE"

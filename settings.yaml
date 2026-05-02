@@ -1,7 +1,7 @@
 apiVersion: v1alpha1
 kind: Setting
 metadata:
-  name: theme-earth-setting
+  name: theme-furtherref-setting
 spec:
   forms:
     - group: layout
@@ -57,7 +57,7 @@ spec:
           id: header_background_image
           key: header_background_image
           label: 首页顶部背景图片
-          value: /themes/theme-earth/assets/images/default-background-2023-10-12.jpeg
+          value: /themes/theme-furtherref/assets/images/default-background-2023-10-12.jpeg
         - $formkit: color
           if: "$get(header_widget).value === site_title"
           name: title_color
@@ -83,6 +83,8 @@ spec:
               value: text
             - label: 图片
               value: image
+            - label: 图片 + 文字
+              value: image_text
         - $formkit: checkbox
           name: show_scroll_button
           label: 显示滚动到顶部按钮
@@ -335,145 +337,6 @@ spec:
                 - label: 图片
                   value: image
 
-    - group: footer
-      label: 页脚
-      formSchema:
-        - $formkit: select
-          name: style
-          id: style
-          key: style
-          label: 页脚风格
-          value: style_1
-          options:
-            - label: 风格一
-              value: style_1
-            - label: 风格二
-              value: style_2
-
-        - $formkit: attachment
-          name: logo
-          label: Logo
-          help: 如果不设置，将使用站点设置的 Logo
-
-        - $formkit: text
-          name: title
-          label: 标题
-          help: 如果不设置，将使用站点设置的标题
-
-        - $formkit: textarea
-          rows: 3
-          name: slogan
-          id: slogan
-          key: slogan
-          if: "$get(style).value === style_2"
-          label: 标语
-
-        - $formkit: select
-          if: "$get(style).value === style_1"
-          name: right_menu
-          id: right_menu
-          key: right_menu
-          label: 右侧菜单
-          action: "/api/v1alpha1/menus"
-          autoSelect: false
-          clearable: true
-          requestOption:
-            labelField: "spec.displayName"
-            valueField: "metadata.name"
-
-        - $formkit: select
-          if: "$get(style).value === style_2"
-          name: menu_names
-          id: menu_names
-          key: menu_names
-          label: 菜单组
-          value: []
-          multiple: true
-          sortable: true
-          action: "/api/v1alpha1/menus"
-          requestOption:
-            labelField: "spec.displayName"
-            valueField: "metadata.name"
-
-        - $formkit: array
-          name: social_media
-          label: 社交媒体
-          value: []
-          itemLabels:
-            - type: "iconify"
-              label: "$value.iconify"
-            - type: "text"
-              label: "$value.name"
-            - type: "text"
-              label: "$value.url"
-          children:
-            - $formkit: iconify
-              name: iconify
-              label: 图标
-              format: svg
-              validation: "required"
-            - $formkit: text
-              name: name
-              label: 名称
-            - $formkit: text
-              name: url
-              label: 链接
-              validation: "required"
-            - $formkit: select
-              name: url_type
-              label: 链接类型
-              value: normal
-              help: "如果选择了图片类型，那么在访客点击之后会使用弹框的形式加载"
-              options:
-                - label: 跳转链接
-                  value: normal
-                - label: 图片
-                  value: image
-            - $formkit: select
-              name: icon
-              label: 图标
-              help: 已废弃，将在未来的版本移除，请使用上方的图标选择器代替
-              options:
-                - label: 电子邮箱（tabler:mail）
-                  value: i-tabler-mail
-                - label: 微信（simple-icons:wechat）
-                  value: i-simple-icons-wechat
-                - label: 腾讯 QQ（simple-icons:tencentqq）
-                  value: i-simple-icons-tencentqq
-                - label: 新浪微博（simple-icons:sinaweibo）
-                  value: i-simple-icons-sinaweibo
-                - label: 知乎（simple-icons:zhihu）
-                  value: i-simple-icons-zhihu
-                - label: 豆瓣（simple-icons:douban）
-                  value: i-simple-icons-douban
-                - label: 哔哩哔哩（simple-icons:bilibili）
-                  value: i-simple-icons-bilibili
-                - label: 抖音 / TikTok（simple-icons:tiktok）
-                  value: i-simple-icons-tiktok
-                - label: Telegram（simple-icons:telegram）
-                  value: i-simple-icons-telegram
-                - label: Facebook（simple-icons:facebook）
-                  value: i-simple-icons-facebook
-                - label: Instagram（simple-icons:instagram）
-                  value: i-simple-icons-instagram
-                - label: LinkedIn（simple-icons:linkedin）
-                  value: i-simple-icons-linkedin
-                - label: Twitter（simple-icons:twitter）
-                  value: i-simple-icons-twitter
-                - label: Slack（simple-icons:slack）
-                  value: i-simple-icons-slack
-                - label: Discord（simple-icons:discord）
-                  value: i-simple-icons-discord
-                - label: YouTube（simple-icons:youtube）
-                  value: i-simple-icons-youtube
-                - label: Steam（simple-icons:steam）
-                  value: i-simple-icons-steam
-                - label: GitHub（simple-icons:github）
-                  value: i-simple-icons-github
-                - label: GitLab（simple-icons:gitlab）
-                  value: i-simple-icons-gitlab
-                - label: RSS（simple-icons:rss）
-                  value: i-simple-icons-rss
     - group: beian
       label: 备案设置
       formSchema:

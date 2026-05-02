@@ -6,7 +6,7 @@
     "build": "pnpm run build-only && pnpm package",
     "build-only": "vp build",
     "check": "vp check --fix",
-    "package": "theme-package",
+    "package": "node scripts/package-theme.mjs",
     "prepare": "vp config"
   },
   "dependencies": {
