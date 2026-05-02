@@ -1,7 +1,7 @@
 <div
   th:fragment="post-card(post,cover,animation,border,direction)"
   class="group flex flex-col overflow-hidden rounded-xl bg-white shadow-md ring-black transition-all duration-500 hover:shadow-lg dark:bg-slate-800 dark:ring-slate-700"
-  th:classappend="${animation  ? 'hover:-translate-y-1' : ''} + ' ' + ${border ? 'hover:ring-2' : ''} + ' ' + ${direction == 'column' ? '!grid grid-cols-1 sm:grid-cols-5' : ''}"
+  th:classappend="${animation  ? 'hover:-translate-y-1' : ''} + ' ' + ${border ? 'hover:ring-2' : ''} + ' ' + ${direction == 'column' ? '!grid grid-cols-1 sm:grid-cols-7' : ''}"
 >
   <div
     th:if="${cover} and ${not #strings.isEmpty(post.spec.cover)}"
@@ -25,9 +25,9 @@
     </div>
   </div>
   <div
-    class="relative col-span-3 grid h-full grid-cols-1 content-between gap-2 p-4"
+    class="relative col-span-5 grid h-full grid-cols-1 content-between gap-2 p-4"
     th:with="list_layout=${theme.config.layout.post_list_layout}"
-    th:classappend="${#strings.isEmpty(post.spec.cover) ? 'col-span-5' : ''}"
+    th:classappend="${#strings.isEmpty(post.spec.cover) ? 'col-span-7' : ''}"
   >
     <div class="space-y-2">
       <div
