@@ -60,7 +60,7 @@ export default (shareIds: string[]) => ({
       name: window.i18nResources["jsModule.share.wechat"],
       icon: "i-simple-icons-wechat",
       type: "url",
-      url: `/themes/theme-earth/assets/qrcode-share.html?url={url}`,
+      url: `/themes/theme-furtherref/assets/qrcode-share.html?url={url}`,
     },
     {
       id: "native",
